@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #eee;
+}
+
+.nav-logo {
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../assets/Logo_ML.png) center no-repeat;
+}
+
+.bg-black {
+  width: 100%;
+  background: #000;
+}
+
+.bgBranco {
+  background-color: #fff;
+}
+
+.bgTop {
+  background-color: #ffe600;
+}
+
+.form-control {
+  border: 0;
+}
+
+.nav-icon-search {
+  padding: 0 25px;
+  border: none;
+  background: #eee url(../../assets/ic_Search.png) center no-repeat;
+}
+
+/*# sourceMappingURL=App.css.map */

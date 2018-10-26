@@ -1,0 +1,39 @@
+$cor-amarelo: #ffe600;
+$cor-cinza-escuro: #333;
+$cor-cinza-medio: #999;
+$cor-cinza-claro: #eee;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: $cor-cinza-claro;
+}
+
+.nav-logo {
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../assets/Logo_ML.png) center no-repeat;
+}
+.bg-black {
+  width: 100%;
+  background: #000;
+}
+.bgBranco {
+  background-color: #fff;
+}
+.bgTop {
+  background-color: $cor-amarelo;
+}
+
+.form-control {
+  border: 0;
+}
+//ICON ##################
+.nav-icon-search {
+  padding: 0 25px;
+  border: none;
+  background: $cor-cinza-claro url(../../assets/ic_Search.png) center no-repeat;
+}
