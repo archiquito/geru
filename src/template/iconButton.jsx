@@ -1,16 +1,12 @@
-import React from "react";
-import If from "./if";
+import React, { Component } from "react";
 
-const iconButton = props => (
-  <If test={!this.props.hide}>
-    <button
-      className={`btn btn-${this.props.estilo}`}
-      onClick={this.props.onClick}
-    >
-      <i className={`fa fa-${this.props.icon}`} />
-    </button>
-  </If>
-);
-iconButton.displayName = "iconButton";
-
-export default iconButton;
+export default class IconButton extends Component {
+  render() {
+    const props = this.props;
+    return (
+      <button className={`btn btn-${props.estilo}`} onClick={props.onClick}>
+        <i className={`fa fa-${props.icon}`} />
+      </button>
+    );
+  }
+}

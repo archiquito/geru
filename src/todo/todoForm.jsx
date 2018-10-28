@@ -2,18 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import Grid from "../template/grid";
-import IconButton from "../template/iconButton";
-import { add, changeDescription, search, clear } from "./todoActions";
+//import Grid from "../template/grid";
+//import IconButton from "../template/iconButton";
+import Container from "../template/Container";
+import * as ActionCreators from "../actions/actions";
 
 class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.keyHandler = this.keyHandler.bind(this);
-  }
-
-  componentDidMount() {
-    search();
   }
 
   keyHandler(e) {
@@ -30,10 +27,19 @@ class TodoForm extends Component {
   }
 
   render() {
-    const props = this.props;
+    //const props = this.props;
     return (
-      <div role="form" className="todoForm">
-        <Grid cols="12 9 10">
+      <Container colNum="col-md-12 text-center">
+        <form>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Digite sua tarefa. Ex.: Comprar pão"
+            />
+          </div>
+        </form>
+        {/* <Grid cols="12 9 10">
           <input
             id="description"
             className="form-control"
@@ -51,23 +57,18 @@ class TodoForm extends Component {
           />
           <IconButton estilo="info" icon="search" onClick={search} />
           <IconButton estilo="default" icon="close" onClick={props.clear} />
-        </Grid>
-      </div>
+        </Grid> */}
+      </Container>
     );
   }
 }
 
-const mapStateToProps = state => ({ description: state.todo.description });
+const mapStateToProps = state => ({
+  description: state.getlistApi.description
+});
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      add,
-      changeDescription,
-      search,
-      clear
-    },
-    dispatch
-  );
+  bindActionCreators({ ActionCreators }, dispatch);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

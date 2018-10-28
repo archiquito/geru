@@ -1,14 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 
-const pageHeader = props => (
-  <header className="page-header">
-    <h2>
-      {this.props.name}
-      <small>{this.props.small}</small>
-    </h2>
-  </header>
-);
+import { PageTitle } from "../styles/styles";
 
-pageHeader.displayName = "pageHeader";
+class PageHeader extends Component {
+  render() {
+    const props = this.props;
 
-export default pageHeader;
+    return (
+      <PageTitle>
+        <h1>
+          <b>
+            {props.name}
+            <small>{props.small}</small>
+          </b>
+        </h1>
+      </PageTitle>
+    );
+  }
+}
+
+export default PageHeader;

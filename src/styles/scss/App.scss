@@ -2,6 +2,7 @@ $cor-amarelo: #ffe600;
 $cor-cinza-escuro: #333;
 $cor-cinza-medio: #999;
 $cor-cinza-claro: #eee;
+$cor-branco: #fff;
 
 body {
   margin: 0;
@@ -21,10 +22,10 @@ body {
   width: 100%;
   background: #000;
 }
-.bgBranco {
-  background-color: #fff;
+.bg-branco {
+  background-color: $cor-branco;
 }
-.bgTop {
+.bg-top {
   background-color: $cor-amarelo;
 }
 

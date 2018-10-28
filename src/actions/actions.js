@@ -1,22 +1,13 @@
 import axios from "axios";
 
-const URL = "http://5bce4f29a0c99b001337aa00.mockapi.io/api/v1/todoList/";
+const URL = "http://5bce4f29a0c99b001337aa00.mockapi.io/api/v1/todoList";
 
-// Tipos de Corpos
 export const getApiList = () => {
-  console.log("cadastro-actions-getApiList");
   return dispatch => {
-    axios
-      .get(URL)
-      .then(resp => {
-        console.log(resp);
-        dispatch({ type: "GET_API_LIST", payload: resp.data });
-      })
-      .catch(resp => {
-        console.log("cadastro-actions-List-catchError");
-        console.log(resp);
-        dispatch({ type: "GET_API_ERROR", payload: resp });
-      });
+    axios.get(URL).then(resp => {
+      console.log("RESP", resp);
+      dispatch({ type: "GET_API_BODYTYPES", payload: resp.data });
+    });
   };
 };
 

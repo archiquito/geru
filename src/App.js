@@ -1,12 +1,5 @@
-import React from 'react';
-import Menu from './template/menu';
-import Routes from './main/routes';
+import React from "react";
 
-const App = () => (
-  <div className="App">
-    <Menu />
-    <Routes />
-  </div>
-);
+const App = () => <div />;
 
 export default App;

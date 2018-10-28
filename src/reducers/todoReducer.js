@@ -1,8 +1,9 @@
-const INITIAL_STATE = { description: "", list: [] };
+const INITIAL_STATE = { description: "", list: "" };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "GET_API_LIST":
+    case "AAAA":
+      console.log("reducerStatecountry-GETAPI", action.payload);
       return { ...state, list: action.payload };
     case "DESCRIPTION_CHANGED":
       return { ...state, description: action.payload };
