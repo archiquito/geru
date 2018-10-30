@@ -6,7 +6,7 @@ export const getApiList = () => {
   return dispatch => {
     axios.get(URL).then(resp => {
       console.log("RESP", resp);
-      dispatch({ type: "GET_API_BODYTYPES", payload: resp.data });
+      dispatch({ type: "GET_API_LIST", payload: resp.data });
     });
   };
 };
@@ -21,16 +21,19 @@ export const search = () => (dispatch, getState) => {
 
 export const clear = () => [{ type: "TODO_CLEAR" }, search()];
 
-export const changeDescription = event => ({
-  type: "DESCRIPTION_CHANGED",
-  payload: event.target.value
-});
+export const changeDescription = event => {
+  console.log("changeDescriptionACT", event);
+  return dispatch => dispatch({ type: "DESCRIPTION_CHANGED", payload: event });
+};
 
-export const add = description => dispatch => {
-  axios
-    .post(URL, { description })
-    .then(resp => dispatch(clear()))
-    .then(resp => dispatch(search()));
+export const add = description => {
+  console.log("ADD", description);
+  return dispatch => {
+    axios.post(URL, { description }).then(resp => {
+      console.log("RESPADD", resp);
+      dispatch({ type: "POST_ADD", payload: resp.data });
+    });
+  };
 };
 
 export const markAsDone = todo => dispatch => {

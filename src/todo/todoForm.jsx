@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 //import Grid from "../template/grid";
-//import IconButton from "../template/iconButton";
+import IconButton from "../template/iconButton";
 import Container from "../template/Container";
-import * as ActionCreators from "../actions/actions";
+import { changeDescription, add, clear, search } from "../actions/actions";
 
 class TodoForm extends Component {
   constructor(props) {
@@ -16,10 +16,12 @@ class TodoForm extends Component {
   keyHandler(e) {
     const props = this.props;
     if (e.key === "Enter") {
+      console.log("ENTROU");
       if (e.shiftKey) {
         props.search();
       } else {
-        props.add(props.description);
+        console.log("ENTROU P ENVIAR", e.target.value);
+        props.add(e.target.value);
       }
     } else if (e.key === "Escape") {
       props.clear();
@@ -27,16 +29,34 @@ class TodoForm extends Component {
   }
 
   render() {
-    //const props = this.props;
+    const props = this.props;
     return (
       <Container colNum="col-md-12 text-center">
         <form>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Digite sua tarefa. Ex.: Comprar pão"
-            />
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Digite sua tarefa. Ex.: Comprar pão"
+                onChange={e => props.changeDescription(e.target.value)}
+                onKeyUp={e => this.keyHandler(e)}
+                value={props.description}
+              />
+            </div>
+            <div className="form-group col-md-6">
+              <IconButton
+                estilo="primary"
+                icon="plus"
+                onClick={() => props.add(props.description)}
+              />
+              <IconButton estilo="info" icon="search" onClick={search} />
+              <IconButton
+                estilo="default"
+                icon="close"
+                onClick={props.clear()}
+              />
+            </div>
           </div>
         </form>
         {/* <Grid cols="12 9 10">
@@ -67,7 +87,7 @@ const mapStateToProps = state => ({
   description: state.getlistApi.description
 });
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ ActionCreators }, dispatch);
+  bindActionCreators({ changeDescription, add, clear, search }, dispatch);
 
 export default connect(
   mapStateToProps,
