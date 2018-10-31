@@ -26,6 +26,11 @@ body {
   background-color: #ffe600;
 }
 
+.markedAsDone {
+  text-decoration: line-through;
+  color: #999;
+}
+
 .form-control {
   border: 0;
 }

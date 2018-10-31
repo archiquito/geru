@@ -10,6 +10,8 @@ import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
 import reducers from "./reducers/index";
 import thunk from "redux-thunk";
+import promise from "redux-promise";
+import multi from "redux-multi";
 
 import Routes from "./main/routes";
 
@@ -17,7 +19,7 @@ const content = global.document.getElementById("root");
 // const devTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = applyMiddleware(thunk, multi, promise)(createStore)(reducers);
 
 ReactDOM.render(
   <AppContainer>

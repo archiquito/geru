@@ -1,8 +1,8 @@
 // reducers/index.js
 
 import { combineReducers } from "redux";
-import GetListApi from "./todoReducer";
+import Todo from "./todoReducer";
 
 export default combineReducers({
-  getlistApi: GetListApi
+  todo: Todo
 });

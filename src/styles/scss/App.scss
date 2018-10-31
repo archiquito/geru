@@ -29,6 +29,10 @@ body {
   background-color: $cor-amarelo;
 }
 
+.markedAsDone {
+  text-decoration: line-through;
+  color: $cor-cinza-medio;
+}
 .form-control {
   border: 0;
 }
