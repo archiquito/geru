@@ -14,16 +14,32 @@ $ cd geru
 $ npm install
 ```
 
-### Web
+## Web
 
 Para executar a aplicação:
-```
+- Conforme documentação ([Creat React App])
+
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
   - [npm run eject](#npm-run-eject)
-  - Conforme documentação [Creat React App])
+  
+#### Eslint no Visual Studio Code
+- Instale extensão `ESLint`
+- Instale extensão `Prettier - Code formatter`
+Editar `settings.json` no VS Code (file > preferences > settings)
 ```
+{
+
+  "prettier.eslintIntegration": true, //ajusta as regras do eslint 
+  "editor.formatOnSave": true, //Correções automáticas ao salvar arquivo
+
+}
+```
+#### EditorConfig no Visual Studio Code
+- Instale a extensão no VS Code `EditorConfig for VS Code`
+
+##
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
