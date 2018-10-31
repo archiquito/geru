@@ -24,6 +24,8 @@ Para executar a aplicação:
   - [npm run build](#npm-run-build)
   - [npm run eject](#npm-run-eject)
   
+## Configs locais
+  
 #### Eslint no Visual Studio Code
 - Instale extensão `ESLint`
 - Instale extensão `Prettier - Code formatter`
