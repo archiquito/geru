@@ -1,4 +1,50 @@
+# Geru TodoList
+
+
+## Setup
+```
+- node 8 ou superior
+- npm 6 
+- npm install -g sass [Sass](https://sass-lang.com/install)
+```
+## Desenvolvimento
+```
+$ git clone https://github.com/archiquito/geru.git
+$ cd geru
+$ npm install
+```
+
+## Web
+
+Para executar a aplicação:
+- Conforme documentação ([Creat React App])
+
+  - [npm start](#npm-start)
+  - [npm test](#npm-test)
+  - [npm run build](#npm-run-build)
+  - [npm run eject](#npm-run-eject)
+  
+## Configs locais
+  
+#### Eslint no Visual Studio Code
+- Instale extensão `ESLint`
+- Instale extensão `Prettier - Code formatter`
+Editar `settings.json` no VS Code (file > preferences > settings)
+```
+{
+
+  "prettier.eslintIntegration": true, //ajusta as regras do eslint 
+  "editor.formatOnSave": true, //Correções automáticas ao salvar arquivo
+
+}
+```
+#### EditorConfig no Visual Studio Code
+- Instale a extensão no VS Code `EditorConfig for VS Code`
+
+##
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
