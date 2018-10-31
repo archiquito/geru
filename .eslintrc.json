@@ -5,6 +5,11 @@
     "jest": true,
     "node": true
   },
+  "settings": {
+    "react": {
+      "version": "16.4.2"
+    }
+  },
   "extends": [
     "react-app",
     "plugin:jsx-a11y/recommended",

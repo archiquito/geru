@@ -1,16 +1,16 @@
 import React from "react";
-import { Route, Redirect, HashRouter } from "react-router-dom";
+import { Route, Redirect, HashRouter, Switch } from "react-router-dom";
 
 import Todo from "../todo/todo";
 import About from "../about/about";
 
 const Routes = () => (
   <HashRouter>
-    <div>
+    <Switch>
       <Route path="/todos" component={Todo} />
       <Route path="/about" component={About} />
       <Redirect from="*" to="/todos" />
-    </div>
+    </Switch>
   </HashRouter>
 );
 
