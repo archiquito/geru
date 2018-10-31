@@ -1,20 +1,20 @@
-#Geru TodoList
+# Geru TodoList
 
 
-##Setup
+## Setup
 ```
 - node 8 ou superior
 - npm 6 
 - npm install -g sass [Sass](https://sass-lang.com/install)
 ```
-##Desenvolvimento
+## Desenvolvimento
 ```
 $ git clone https://github.com/archiquito/geru.git
 $ cd geru
 $ npm install
 ```
 
-###Web
+### Web
 
 Para executar a aplicação:
 ```
