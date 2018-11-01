@@ -36,6 +36,4 @@ const About = props => (
   </Fragment>
 );
 
-About.displayName = "About";
-
 export default About;

@@ -124,7 +124,9 @@ class TodoList extends Component {
           <thead>
             <tr>
               <th style={{ width: "70%" }}>Descrição</th>
-              <th className="tableActions" style={{ width: "30%" }} />
+              <th className="tableActions" style={{ width: "30%" }}>
+                Ações
+              </th>
             </tr>
           </thead>
           <tbody>{this.renderRows()}</tbody>
