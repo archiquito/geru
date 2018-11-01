@@ -84,11 +84,11 @@
 //   mapDispatchToProps
 // )(TodoForm);
 
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-//import Grid from "../template/grid";
+import ModalTemplate from "../template/modal";
 import Container from "../template/Container";
 import IconButton from "../template/iconButton";
 import { add, changeDescription, search, clear } from "./todoActions";
@@ -122,9 +122,34 @@ class TodoForm extends Component {
   render() {
     const props = this.props;
     return (
-      <Container colNum="col-md-12 text-center">
-        <div className="form-row">
-          <div className="form-group col-md-6">
+      <Fragment>
+        <Container colNum="col-md-12 text-center">
+          <div className="form-row">
+            <div className="form-group col-md-12">
+              <IconButton
+                estilo="primary"
+                icon="plus"
+                texto="Adicionar nova tarefa"
+                toggleModal="modal"
+                targetModal="#modalTemplate"
+              />
+              {/* <IconButton
+                estilo="info"
+                toggleModal=""
+                icon="search"
+                onClick={search}
+              />
+              <IconButton
+                estilo="default"
+                toggleModal=""
+                icon="close"
+                onClick={props.clear}
+              /> */}
+            </div>
+          </div>
+        </Container>
+        <ModalTemplate titulo={"Acione nova tarefa"}>
+          <div className="w-100 form-group">
             <input
               id="description"
               className="form-control"
@@ -133,18 +158,16 @@ class TodoForm extends Component {
               onKeyUp={this.keyHandler}
               value={props.description}
             />
-          </div>
-          <div className="form-group col-md-6">
             <IconButton
               estilo="primary"
               icon="plus"
+              texto="Gravar"
+              toggleModal=""
               onClick={() => props.add(props.description)}
             />
-            <IconButton estilo="info" icon="search" onClick={search} />
-            <IconButton estilo="default" icon="close" onClick={props.clear} />
           </div>
-        </div>
-      </Container>
+        </ModalTemplate>
+      </Fragment>
     );
   }
 }
