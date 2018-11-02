@@ -20,14 +20,17 @@ const About = props => (
         alta performance. Ob jetivo era construir uma SPA de lista de tarefas
         (To-Do List) usando uma stack de alta performance.
       </p>
-      <TitleH3Laranja>Missão e Visão</TitleH3Laranja>
+      <TitleH3Laranja>Funções Implementadas</TitleH3Laranja>
 
-      <p>- Aenean quis est vitae ex mollis porttitor.</p>
-      <p>- Quisque venenatis orci et vestibulum interdum.</p>
-      <p>- Suspendisse sed magna sed ligula posuere cursus.</p>
+      <p>- Inserção de Tarefa (add, edit, delete)</p>
+      <p>- Marcar tarefa como concluída</p>
+      <p>- Inserção de tags na tarefa (add, edit, delete)</p>
 
-      <TitleH3Laranja>Imprensa</TitleH3Laranja>
-      <p>Lorem ipsum dolor sit amet...</p>
+      <TitleH3Laranja>Recursos Usados</TitleH3Laranja>
+      <p>- Reacjs</p>
+      <p>- Sass</p>
+      <p>- Redux</p>
+      <p>- Mockapi</p>
     </Container>
   </Fragment>
 );

@@ -6,6 +6,8 @@ import Tags from "../todo/tags";
 import ModalTemplate from "../template/modal";
 import Container from "../template/Container";
 import IconButton from "../template/iconButton";
+import { TitleH3Laranja } from "../styles/styles";
+
 import {
   markAsDone,
   markAsPending,
@@ -20,44 +22,73 @@ import {
 class TodoList extends Component {
   renderRows = () => {
     const props = this.props;
-    const list = props.list || [];
-    return list.map(todo => (
-      <tr key={todo.id}>
-        <td className={todo.done ? "markedAsDone" : ""}>{todo.description}</td>
-        <td>
-          <IconButton
-            title="Concluída"
-            estilo="success"
-            icon="check"
-            hide={todo.done}
-            onClick={() => props.markAsDone(todo.id)}
-          />
-          <IconButton
-            title="Editar"
-            estilo="info"
-            icon="pencil"
-            hide={!todo.done}
-            toggleModal="modal"
-            targetModal="#modalEditar"
-            onClick={() => props.getDesc(todo.id)}
-          />
-          <IconButton
-            title="Não Concluída"
-            estilo="warning"
-            icon="undo"
-            hide={!todo.done}
-            onClick={() => props.markAsPending(todo.id)}
-          />
-          <IconButton
-            title="Excluir"
-            estilo="danger"
-            icon="trash-o"
-            hide={!todo.done}
-            onClick={() => props.remove(todo)}
-          />
-        </td>
-      </tr>
-    ));
+    if (!props.hasError) {
+      const list = props.list || [];
+
+      return list.map(todo => (
+        <tr key={todo.id}>
+          <td className={todo.done ? "markedAsDone" : ""}>
+            {todo.description}
+            <div className="ReactTags__tags react-tags-wrapper">
+              <div className="ReactTags__selected">
+                {todo.tags.length > 0
+                  ? todo.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="tag-wrapper ReactTags__tag"
+                        draggable="true"
+                      >
+                        {tag.text}
+                      </span>
+                    ))
+                  : null}
+              </div>
+            </div>
+          </td>
+          <td>
+            <IconButton
+              title="Concluída"
+              estilo="success"
+              icon="check"
+              hide={todo.done}
+              onClick={() => props.markAsDone(todo.id)}
+            />
+            <IconButton
+              title="Editar"
+              estilo="info"
+              icon="pencil"
+              hide={!todo.done}
+              toggleModal="modal"
+              targetModal="#modalEditar"
+              onClick={() => props.getDesc(todo.id)}
+            />
+            <IconButton
+              title="Não Concluída"
+              estilo="warning"
+              icon="undo"
+              hide={!todo.done}
+              onClick={() => props.markAsPending(todo.id)}
+            />
+            <IconButton
+              title="Excluir"
+              estilo="danger"
+              icon="trash-o"
+              hide={!todo.done}
+              onClick={() => props.remove(todo)}
+            />
+          </td>
+        </tr>
+      ));
+    } else {
+      return (
+        <tr key="erro">
+          <td className="erro">
+            <TitleH3Laranja>OPS! Alguma coisa está errada.</TitleH3Laranja>
+            <p>{props.infoError}</p>
+          </td>
+        </tr>
+      );
+    }
   };
   render() {
     const props = this.props;
@@ -111,7 +142,9 @@ const mapStateToProps = state => ({
   erroDesc: state.todo.erroDesc,
   list: state.todo.list,
   descriptionEdit: state.todo.descriptionEdit,
-  idDescription: state.todo.idDescription
+  idDescription: state.todo.idDescription,
+  hasError: state.todo.hasError,
+  infoError: state.todo.infoError
 });
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
