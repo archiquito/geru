@@ -28,6 +28,7 @@ const About = props => (
 
       <TitleH3Laranja>Recursos Usados</TitleH3Laranja>
       <p>- Reacjs</p>
+      <p>- Bootstrap</p>
       <p>- Sass</p>
       <p>- Redux</p>
       <p>- Mockapi</p>
