@@ -1,48 +1,12 @@
-// // const INITIAL_STATE = { description: "", list: [] };
-
-// // export default (state = INITIAL_STATE, action) => {
-// //   switch (action.type) {
-// //     case "GET_API_LIST":
-// //       console.log("reducerStatecountry-GETAPI", action.payload);
-// //       return { ...state, list: action.payload };
-// //     case "DESCRIPTION_CHANGED":
-// //       console.log("DESCRIPTION_CHANGED-REDUCER", action.payload);
-// //       return { ...state, description: action.payload };
-// //     case "POST_ADD":
-// //       console.log("POST_ADD", action.payload);
-// //       return { ...state, description: "" };
-// //     case "TODO_SEARCHED":
-// //       return { ...state, list: action.payload };
-// //     case "TODO_CLEAR":
-// //       return { ...state, description: "" };
-// //     default:
-// //       return state;
-// //   }
-// // };
-
-// const INITIAL_STATE = { description: "", list: [] };
-
-// export default (state = INITIAL_STATE, action) => {
-//   switch (action.type) {
-//     case "GET_API_LIST":
-//       return { ...state, list: action.payload };
-//     case "DESCRIPTION_CHANGED":
-//       return { ...state, description: action.payload };
-//     case "TODO_SEARCHED":
-//       return { ...state, list: action.payload };
-//     case "TODO_CLEAR":
-//       return { ...state, description: "" };
-//     default:
-//       return state;
-//   }
-// };
-
 const INITIAL_STATE = {
   description: "",
   list: [],
   erroDesc: "Adicione uma tarefa",
   descriptionEdit: "",
-  idDescription: ""
+  idDescription: "",
+  tags: [],
+  hasError: false,
+  infoError: ""
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -61,6 +25,14 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, descriptionEdit: action.payload };
     case "DESCRIPTION_ID":
       return { ...state, idDescription: action.payload };
+    case "GET_TAGS":
+      return { ...state, tags: action.payload };
+    case "HAS_ERROR":
+      return {
+        ...state,
+        hasError: action.payload[0].hasError,
+        infoError: action.payload[0].info
+      };
     default:
       return state;
   }
