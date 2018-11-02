@@ -64,6 +64,11 @@ export const changeDescription = event => ({
   payload: event.target.value
 });
 
+export const changeDescriptionEdit = event => ({
+  type: "DESCRIPTION_EDITED",
+  payload: event.target.value
+});
+
 export const search = () => {
   return (dispatch, getState) => {
     const description = getState().todo.description;
@@ -79,32 +84,66 @@ export const clear = () => {
 
 export const add = description => {
   return dispatch => {
-    axios
-      .post(URL, { description })
-      .then(resp => dispatch(clear()))
-      .then(resp => dispatch(search()));
+    if (description !== "") {
+      axios
+        .post(URL, { description })
+        .then(resp => dispatch(clear()))
+        .then(resp => dispatch(search()));
+    } else {
+      dispatch(search());
+      dispatch({
+        type: "DESCRIPTION_EMPTY",
+        payload: ""
+      });
+    }
+  };
+};
+
+export const addEdit = (descriptionEd, iddesc) => {
+  return dispatch => {
+    if (descriptionEd !== "") {
+      axios.put(URL + iddesc, { description: descriptionEd }).then(resp => {
+        dispatch(search());
+      });
+    } else {
+      dispatch(search());
+      dispatch({
+        type: "DESCRIPTION_EMPTY",
+        payload: ""
+      });
+    }
   };
 };
 
 export const markAsDone = todo => {
   return dispatch => {
-    axios
-      .put(URL + todo.id, { ...todo, done: true })
-      .then(resp => dispatch(search()));
+    axios.put(URL + todo, { done: true }).then(resp => dispatch(search()));
   };
 };
 
 export const markAsPending = todo => {
   return dispatch => {
-    console.log(`${URL}/${todo.id}`);
-    axios
-      .put(`${URL}/${todo.id}`, { ...todo, done: false })
-      .then(resp => dispatch(search()));
+    axios.put(URL + todo, { done: false }).then(resp => dispatch(search()));
   };
 };
 
 export const remove = todo => {
   return dispatch => {
-    axios.delete(`${URL}/${todo.id}`).then(resp => dispatch(search()));
+    axios.delete(URL + todo.id).then(resp => dispatch(search()));
+  };
+};
+
+export const getDesc = iddesc => {
+  return dispatch => {
+    axios.get(URL + iddesc).then(resp => {
+      dispatch({
+        type: "DESCRIPTION_EDIT",
+        payload: resp.data.description
+      });
+      dispatch({
+        type: "DESCRIPTION_ID",
+        payload: iddesc
+      });
+    });
   };
 };

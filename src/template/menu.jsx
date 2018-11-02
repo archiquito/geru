@@ -6,7 +6,7 @@ const Menu = () => (
   <div className="bg-branco">
     <Container colNum="col-md-12">
       <nav className="navbar navbar-expand-lg navbar-light">
-        <a className="navbar-brand" href="#/">
+        <a className="navbar-brand" href="#/todos ">
           <img src={Logo} style={{ width: "150px" }} alt="geru" />
         </a>
         <button
@@ -22,11 +22,6 @@ const Menu = () => (
         </button>
         <div className="collapse navbar-collapse" id="navbarNavCol">
           <ul className="navbar-nav">
-            <li className="nav-item active">
-              <a className="nav-link" href="#/">
-                Home <span className="sr-only">(current)</span>
-              </a>
-            </li>
             <li className="nav-item">
               <a className="nav-link" href="#/todos">
                 Todo
@@ -34,7 +29,7 @@ const Menu = () => (
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#/about">
-                About
+                Sobre
               </a>
             </li>
           </ul>

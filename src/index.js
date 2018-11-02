@@ -16,10 +16,13 @@ import multi from "redux-multi";
 import Routes from "./main/routes";
 
 const content = global.document.getElementById("root");
-// const devTools =
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = applyMiddleware(thunk, multi, promise)(createStore)(reducers);
+const store = applyMiddleware(thunk, multi, promise)(createStore)(
+  reducers,
+  devTools
+);
 
 ReactDOM.render(
   <AppContainer>

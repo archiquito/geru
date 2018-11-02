@@ -8,21 +8,17 @@ import { TitleH3Laranja } from "../styles/styles";
 const About = props => (
   <Fragment>
     <Menu />
-    <PageHeader name="Sobre Nós" small="" />
+    <PageHeader name="Sobre o Desafio" small="" />
     <Container colNum="col-md-12 text-center">
-      <TitleH3Laranja>Nossa História</TitleH3Laranja>
+      <TitleH3Laranja>Desafio Front-End Geru</TitleH3Laranja>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-        laoreet dapibus sagittis. Mauris mauris urna, molestie vel elit eget,
-        ullamcorper lobortis ex. Aliquam congue, justo ac pulvinar ornare, augue
-        arcu fringilla dui, ut rutrum nulla tellus et risus. Ut id risus
-        facilisis, ultricies turpis vel, pellentesque nulla. Aliquam eget velit
-        ligula. Aliquam felis justo, consequat eget ex non, ultrices faucibus
-        risus. Aenean id maximus nisi. Curabitur ultricies hendrerit felis.
-        Mauris lacinia enim velit, sit amet ornare lectus sagittis sed. Fusce
-        ornare accumsan pulvinar. Praesent sit amet sem ut libero pellentesque
-        consectetur. Vivamus pharetra lorem quis metus ultrices, sed luctus nisi
-        ullamcorper.
+        Aplicação desenvolvida com ReactJs e inicializado com o Create React
+        App.
+      </p>
+      <p>
+        Construir uma SPA de lista de tarefas (To-Do List) usando uma stack de
+        alta performance. Ob jetivo era construir uma SPA de lista de tarefas
+        (To-Do List) usando uma stack de alta performance.
       </p>
       <TitleH3Laranja>Missão e Visão</TitleH3Laranja>
 
