@@ -14,6 +14,4 @@ const Todo = props => (
   </Fragment>
 );
 
-Todo.displayName = "Todo";
-
 export default Todo;

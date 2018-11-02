@@ -5,12 +5,8 @@ body {
   background-color: #eee;
 }
 
-.nav-logo {
-  height: 5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url(../../assets/Logo_ML.png) center no-repeat;
+.btn {
+  margin: 0 2px;
 }
 
 .bg-black {

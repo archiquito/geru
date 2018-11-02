@@ -2,13 +2,6 @@ import React, { Component, Fragment } from "react";
 
 import { WithContext as ReactTags } from "react-tag-input";
 
-// const suggestions = COUNTRIES.map(country => {
-//   return {
-//     id: country,
-//     text: country
-//   };
-// });
-
 const KeyCodes = {
   comma: 188,
   enter: 13

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Tags from "../todo/tags";
 
 export default class ModalTemplate extends Component {
   render() {
@@ -7,7 +6,7 @@ export default class ModalTemplate extends Component {
     return (
       <div
         className="modal fade"
-        id="modalTemplate"
+        id={props.targetModal}
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
@@ -28,7 +27,6 @@ export default class ModalTemplate extends Component {
             <div className="modal-body">
               {props.texto}
               {props.children}
-              <Tags />
             </div>
             {props.footer ? (
               <div className="modal-footer">
