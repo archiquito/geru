@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import { PageTitle } from "../styles/styles";
 
 class PageHeader extends Component {
+
   render() {
     const props = this.props;
 
@@ -19,4 +21,8 @@ class PageHeader extends Component {
   }
 }
 
-export default PageHeader;
+PageHeader.propTypes = {
+  name: PropTypes.any,
+  small: PropTypes.any
+};
+export default PageHeader; 
